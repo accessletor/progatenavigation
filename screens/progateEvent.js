@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { useFocusEffect } from '@react-navigation/native'
 
-const ProgateEvent = () => {
+// const ProgateEvent = ({ navigation }) => {
+//   useEffect(() => {
+//     navigation.addListener('focus', () =>
+//       alert('ProgateEvent screen is focused'),
+//     )
+//     navigation.addListener('blur', () =>
+//       alert('ProgateEvent screen is unfocused'),
+//     )
+//   })
+const ProgateEvent = ({ navigation }) => {
+  useEffect(() => {
+    navigation.addListener('state', () => alert('navigation state changed'))
+  })
   return (
     <View style={styles.container}>
       <Text style={[styles.title, styles.marginBottom20]}>Progate Event</Text>
